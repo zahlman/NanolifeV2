@@ -12,7 +12,7 @@ def get_important_part(gen):
                 times = gen_runner.run(gen)
                 if sum([1 for b, k in enumerate(times) if k > 0]): break
         return [j[b] for b, k in enumerate(times) if k > 0]
-data = [[eval("0x" + k) for k in i.split('#')[3][1:].split(',')] for i in open('genetic_tree.data', 'r').read().split('\n')[:-1]]
+data = [[int(k, 16) for k in i.split('#')[3][1:].split(',')] for i in open('genetic_tree.data', 'r').read().split('\n')[:-1]]
 last = 0
 lista = []
 for i, j in enumerate(data[::1]):
